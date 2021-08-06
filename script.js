@@ -10,7 +10,7 @@ for (let i = 0; i < 10; i++) {
     if (i < 2) {
       element.classList.add("first-two");
     }
-    div.appendChild(element);
+    app.appendChild(element);
   });
 }
 
@@ -22,10 +22,7 @@ async function fetchAndAddToTheNode(api, element, cb) {
   cb(data, createdElement);
 }
 
-function templateString({ activity, type, participants }) {
+function templateString({ activity, type }) {
   return `<h3>${activity}</h3>
-  <h4> type: ${type}</h4>
-  <p>posible with ${participants} participants</p>`;
+  <p> Type: ${type}</p>`;
 }
-
-app.appendChild(div);
