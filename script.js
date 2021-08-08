@@ -1,17 +1,27 @@
 const app = document.getElementById("app");
 const API = "https://www.boredapi.com/api/activity";
+const numberOfActivities = 8;
+let firstFetching = true;
+
 let div = document.createElement("div");
 
-for (let i = 0; i < 8; i++) {
-  fetchAndAddToTheNode(API, "div", (data, element) => {
-    element.innerHTML = templateString(data);
+const btn = document.getElementById("btn-to-load");
 
-    element.classList.add(data.type);
-    if (i < 2) {
-      element.classList.add("first-two");
-    }
-    app.appendChild(element);
-  });
+btn.onclick = startTheFetching;
+
+function startTheFetching() {
+  for (let i = 0; i < numberOfActivities; i++) {
+    fetchAndAddToTheNode(API, "div", (data, element) => {
+      element.innerHTML = templateString(data);
+
+      element.classList.add(data.type);
+
+      app.appendChild(element);
+    });
+  }
+  if (firstFetching) btnToLoad.innerHTML = "Load more.";
+
+  firstFetching = false;
 }
 
 async function fetchAndAddToTheNode(api, element, cb) {
