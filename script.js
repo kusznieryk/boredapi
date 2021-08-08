@@ -2,7 +2,7 @@ const app = document.getElementById("app");
 const API = "https://www.boredapi.com/api/activity";
 let div = document.createElement("div");
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 8; i++) {
   fetchAndAddToTheNode(API, "div", (data, element) => {
     element.innerHTML = templateString(data);
 
