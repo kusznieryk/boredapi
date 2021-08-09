@@ -1,10 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Prompt:wght@400;700&display=swap");
 
 :root {
-  --main-text-color: #222;
-  --main-bc-color: #eee;
-  --main-card-color: #ddd;
-  --main-box-shadow: #bbb;
+  --main-text-color: #ddd;
+  --main-bc-color: #111;
+  --main-card-color: #222;
+  --main-box-shadow: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-text-color: #ddd;
+    --main-bc-color: #111;
+    --main-card-color: #222;
+    --main-box-shadow: #333;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --main-text-color: #222;
+    --main-bc-color: #eee;
+    --main-card-color: #ddd;
+    --main-box-shadow: #bbb;
+  }
 }
 
 * {
@@ -59,6 +77,7 @@ h3 {
 }
 
 #btn-to-load {
+  background-color: var(--main-card-color);
   margin: 5vh auto;
   display: block;
   height: 10vh;
@@ -66,11 +85,13 @@ h3 {
   width: 20vw;
   font-size: 2rem;
   border-radius: 0.5rem;
+  border-style: solid;
+  border-width: 1px;
   box-shadow: -8px 8px 5px 2px var(--main-box-shadow);
   border-color: var(--main-box-shadow);
 }
 
 #btn-to-load:active {
-  box-shadow: inset -8px 8px 5px 2px #bbb;
+  box-shadow: inset -8px 8px 5px 2px var(--main-box-shadow);
   transform: translateX(-8px) translateY(8px);
 }
