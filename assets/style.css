@@ -95,3 +95,22 @@ h3 {
   box-shadow: inset -8px 8px 5px 2px var(--main-box-shadow);
   transform: translateX(-8px) translateY(8px);
 }
+
+.loading {
+  margin: 5vh auto;
+  height: 50px;
+  width: 50px;
+  border-top: var(--main-text-color) 2px solid;
+  border-left: var(--main-text-color) 2px solid;
+  border-radius: 50%;
+  animation: rotator 1s linear infinite;
+}
+
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(350deg);
+  }
+}

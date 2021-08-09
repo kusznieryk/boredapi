@@ -1,3 +1,4 @@
+let animation = document.querySelector(".loading");
 const app = document.getElementById("app");
 const btnToLoad = document.getElementById("btn-to-load");
 const API = "https://www.boredapi.com/api/activity";
@@ -8,10 +9,14 @@ btnToLoad.addEventListener("click", () => {
   startTheFetching();
 });
 
-startTheFetching();
-function startTheFetching() {
+window.onload = (event) => {
+  startTheFetching();
+};
+
+async function startTheFetching() {
+  animation.classList.add("loading");
   for (let i = 0; i < 8; i++) {
-    fetchAndAddToTheNode(API, "div", (data, element) => {
+    await fetchAndAddToTheNode(API, "div", (data, element) => {
       element.innerHTML = templateString(data);
 
       element.classList.add(data.type);
@@ -19,6 +24,7 @@ function startTheFetching() {
       app.appendChild(element);
     });
   }
+  animation.classList.remove("loading");
 }
 
 async function fetchAndAddToTheNode(api, element, cb) {
